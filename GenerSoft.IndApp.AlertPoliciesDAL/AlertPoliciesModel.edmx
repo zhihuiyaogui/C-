@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AlertPoliciesModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="A_AlarmHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceID" Type="bigint" Nullable="false" />
+          <Property Name="DeviceItemID" Type="bigint" Nullable="false" />
+          <Property Name="StrategyID" Type="bigint" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="AlarmTime" Type="datetime" Precision="0" />
+          <Property Name="EndTime" Type="datetime" Precision="0" />
+          <Property Name="OrgID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="A_AlarmStrategy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StrategyName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DeviceID" Type="bigint" />
+          <Property Name="DataConnectID" Type="bigint" />
+          <Property Name="TagMap" Type="varchar" MaxLength="5000" />
+          <Property Name="DeviceItemId" Type="bigint" />
+          <Property Name="Compare" Type="varchar" MaxLength="50" />
+          <Property Name="Threshold" Type="varchar" MaxLength="200" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="CreateUserID" Type="bigint" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+          <Property Name="UpdateUserId" Type="bigint" />
+          <Property Name="UpdateTime" Type="datetime" Precision="0" />
+          <Property Name="Interval" Type="bigint" />
+          <Property Name="Active" Type="bool" />
+          <Property Name="OrgID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AlertPoliciesModelStoreContainer">
+          <EntitySet Name="A_AlarmHistory" EntityType="Self.A_AlarmHistory" Schema="DeviceMonitor" store:Type="Tables" />
+          <EntitySet Name="A_AlarmStrategy" EntityType="Self.A_AlarmStrategy" Schema="DeviceMonitor" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlertPoliciesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AlertPoliciesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="A_AlarmHistory" EntityType="AlertPoliciesModel.A_AlarmHistory" />
+          <EntitySet Name="A_AlarmStrategy" EntityType="AlertPoliciesModel.A_AlarmStrategy" />
+        </EntityContainer>
+        <EntityType Name="A_AlarmHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceID" Type="Int64" Nullable="false" />
+          <Property Name="DeviceItemID" Type="Int64" Nullable="false" />
+          <Property Name="StrategyID" Type="Int64" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AlarmTime" Type="DateTime" />
+          <Property Name="EndTime" Type="DateTime" />
+          <Property Name="OrgID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="A_AlarmStrategy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StrategyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceID" Type="Int64" />
+          <Property Name="DataConnectID" Type="Int64" />
+          <Property Name="TagMap" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceItemId" Type="Int64" />
+          <Property Name="Compare" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Threshold" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserID" Type="Int64" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="UpdateUserId" Type="Int64" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="Interval" Type="Int64" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="OrgID" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlertPoliciesModelStoreContainer" CdmEntityContainer="AlertPoliciesEntities">
+          <EntitySetMapping Name="A_AlarmHistory">
+            <EntityTypeMapping TypeName="AlertPoliciesModel.A_AlarmHistory">
+              <MappingFragment StoreEntitySet="A_AlarmHistory">
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="AlarmTime" ColumnName="AlarmTime" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="StrategyID" ColumnName="StrategyID" />
+                <ScalarProperty Name="DeviceItemID" ColumnName="DeviceItemID" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_AlarmStrategy">
+            <EntityTypeMapping TypeName="AlertPoliciesModel.A_AlarmStrategy">
+              <MappingFragment StoreEntitySet="A_AlarmStrategy">
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Interval" ColumnName="Interval" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Threshold" ColumnName="Threshold" />
+                <ScalarProperty Name="Compare" ColumnName="Compare" />
+                <ScalarProperty Name="DeviceItemId" ColumnName="DeviceItemId" />
+                <ScalarProperty Name="TagMap" ColumnName="TagMap" />
+                <ScalarProperty Name="DataConnectID" ColumnName="DataConnectID" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="StrategyName" ColumnName="StrategyName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

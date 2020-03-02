@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ACDC85E7-3DBE-45BE-B035-93FBD7A80FE9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeviceMonitoringBLL</RootNamespace>
+    <AssemblyName>DeviceMonitoringBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.7\lib\net452\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlgorithmBLL.cs" />
+    <Compile Include="DeviceDataBLL.cs" />
+    <Compile Include="DeviceInfoBLL.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceChartDataListModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceChartDataModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceDataListModel2.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceDataListModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceDataModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceDataInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceIdInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceRequiredDataModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\DeviceTagModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\GetDeviceDataParameter.cs" />
+    <Compile Include="Model\Parameter\DeviceData\MySqlRequiredDataModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\OpenTSDBRequiredDataModel.cs" />
+    <Compile Include="Model\Parameter\DeviceData\ResponseLastData.cs" />
+    <Compile Include="Model\Parameter\DeviceData\RetLastData.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\AlertPoliciesModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\GetTemChartModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\FindMedicineInfo.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceBuildingModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\MedicineListInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DisplayMedicineInfo.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeleteMedicineInfo.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\GetMedicineInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\MedicineInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\GetDeviceEnvironmentDataInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceEnvironmentDataInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DataConnectConfigurationModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceGroupModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceModelInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceModelItemInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceItemInfoModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\DeviceTagModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\EquipmentReportModel.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\GetIoTHubConnectDataParameter.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\GetDeviceInfoParameter.cs" />
+    <Compile Include="Model\Parameter\DeviceMonitoring\IoTHubConfigurationModel.cs" />
+    <Compile Include="Model\Parameter\EnergyReport\BaseModel.cs" />
+    <Compile Include="Model\Parameter\EnergyReport\EquipmentEnergyModel.cs" />
+    <Compile Include="Model\Return\DeviceData\RetDeviceChartData.cs" />
+    <Compile Include="Model\Return\DeviceData\RetDeviceCurrentData.cs" />
+    <Compile Include="Model\Return\DeviceData\RetDeviceData.cs" />
+    <Compile Include="Model\Return\DeviceData\RetDeviceTableList.cs" />
+    <Compile Include="Model\Return\DeviceData\RetDeviceTableData.cs" />
+    <Compile Include="Model\Return\DeviceData\RetDeviceRequiredData.cs" />
+    <Compile Include="Model\Return\DeviceData\RetPieList.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetGetStatusChart.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetGetHumChart.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetAlertPolicies.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetGetTemChart.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetFindMedicineInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceBuilding.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDisplayMedicineInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetMedicineDetails.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetMedicineInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetEnvironmentInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceEnvironmentDataInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDataConnectConfiguration.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceGroupInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceItemInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceModelInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceModelItemInfo.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetDeviceTag.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetEquipmentReport.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetGroupCascader.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetIoTHubConfiguration.cs" />
+    <Compile Include="Model\Return\DeviceMonitoring\RetMedicineListInfo.cs" />
+    <Compile Include="Model\Return\EnergyReport\EquipmentEnergyLine.cs" />
+    <Compile Include="Model\Return\EnergyReport\RetEquipmentEnergyChart.cs" />
+    <Compile Include="Model\Return\EnergyReport\EquipmentEnergyPie.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\GenerSoft.IndApp.Common.csproj">
+      <Project>{7daeb732-cdda-4be3-acb1-f8a3b69a6738}</Project>
+      <Name>GenerSoft.IndApp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeviceMonitoringDAL\GenerSoft.IndApp.DeviceMonitoringDAL.csproj">
+      <Project>{b8fb93cc-c118-4d8b-82e2-6c5b4948a92b}</Project>
+      <Name>GenerSoft.IndApp.DeviceMonitoringDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.IndApp.CommonSdk\GenerSoft.IndApp.CommonSdk.csproj">
+      <Project>{9e5fd4c4-663a-4bf6-b47f-f03df0dbe3c3}</Project>
+      <Name>GenerSoft.IndApp.CommonSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.IndApp.Redis\GenerSoft.IndApp.Redis.csproj">
+      <Project>{E96211A9-CFDF-4B00-A8C6-8DFB7F04E43B}</Project>
+      <Name>GenerSoft.IndApp.Redis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.MQTT.Client\GenerSoft.MQTT.Client.csproj">
+      <Project>{18E04A17-A18D-4396-ADF7-E31A2578B4CE}</Project>
+      <Name>GenerSoft.MQTT.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.OpenTSDB.Client\GenerSoft.OpenTSDB.Client.csproj">
+      <Project>{aa6c3d4b-f212-452f-8e19-1cc4f23b1bfd}</Project>
+      <Name>GenerSoft.OpenTSDB.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

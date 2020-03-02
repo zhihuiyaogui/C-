@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D16386C7-0599-40A6-8238-60B0D7FA9D3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UserBLL</RootNamespace>
+    <AssemblyName>UserBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EnumerationsBLL.cs" />
+    <Compile Include="EquipmentReportBLL.cs" />
+    <Compile Include="HomeConfigurationBLL.cs" />
+    <Compile Include="MessageBLL.cs" />
+    <Compile Include="Model\Parameter\EnergyReport\DashBoardEnergyConfigModel.cs" />
+    <Compile Include="Model\Parameter\Enumerations\EnumerationsModel.cs" />
+    <Compile Include="Model\Parameter\EnergyReport\EquipmentEnergyModel.cs" />
+    <Compile Include="Model\Parameter\EnergyReport\BaseModel.cs" />
+    <Compile Include="Model\Parameter\HomeConfiguration\BaseModel.cs" />
+    <Compile Include="Model\Parameter\HomeConfiguration\DashBoardChartConfigModel.cs" />
+    <Compile Include="Model\Parameter\HomeConfiguration\DashBoardDataListModel.cs" />
+    <Compile Include="Model\Parameter\HomeConfiguration\DeviceBaseModel.cs" />
+    <Compile Include="Model\Parameter\HomeConfiguration\HomeConfigurationModel.cs" />
+    <Compile Include="Model\Parameter\HomeConfiguration\HomeDeviceInfo.cs" />
+    <Compile Include="Model\Parameter\HomeConfiguration\RealTimeMonitorModel.cs" />
+    <Compile Include="Model\Parameter\Login\UserLoginModel.cs" />
+    <Compile Include="Model\Parameter\Message\GetMessageInfoParameter.cs" />
+    <Compile Include="Model\Parameter\Message\MessageInfoModel.cs" />
+    <Compile Include="Model\Parameter\Message\UserMessageRelModel.cs" />
+    <Compile Include="Model\Parameter\PhoneCode\PhoneCodeModel.cs" />
+    <Compile Include="Model\Parameter\PhoneCode\SmsType.cs" />
+    <Compile Include="Model\Parameter\User\UserMessageLoginModel.cs" />
+    <Compile Include="Model\Parameter\User\GetUserLoginInfoParameter.cs" />
+    <Compile Include="Model\Parameter\User\DisableTokenIdParameter.cs" />
+    <Compile Include="Model\Parameter\User\OrganizationInfoModel.cs" />
+    <Compile Include="Model\Parameter\User\UserInfoModel.cs" />
+    <Compile Include="Model\Parameter\User\UserOrganizeInfoModel.cs" />
+    <Compile Include="Model\Parameter\User\UserRegisterModel.cs" />
+    <Compile Include="Model\Parameter\User\VerificationCodeModel.cs" />
+    <Compile Include="Model\Return\Enumerations\RetEnumerations.cs" />
+    <Compile Include="Model\Return\HomeConfiguration\RetDashBoardDataList.cs" />
+    <Compile Include="Model\Return\HomeConfiguration\RetDeviceItems.cs" />
+    <Compile Include="Model\Return\EnergyReport\RetEquipmentEnergyList.cs" />
+    <Compile Include="Model\Return\HomeConfiguration\RetHomeConfiguration.cs" />
+    <Compile Include="Model\Return\HomeConfiguration\RetRealTimeMonitor.cs" />
+    <Compile Include="Model\Return\HomeConfiguration\RetRelTime.cs" />
+    <Compile Include="Model\Return\HomeConfiguration\RetRelTimeTag.cs" />
+    <Compile Include="Model\Return\Login\RetUserLoginInfo.cs" />
+    <Compile Include="Model\Return\Message\RetMessageInfo.cs" />
+    <Compile Include="Model\Return\Message\RetUserMessageRel.cs" />
+    <Compile Include="Model\Return\User\RetUserMessageLoginModel.cs" />
+    <Compile Include="Model\Return\User\RetOrganizationInfo.cs" />
+    <Compile Include="Model\Return\User\RetUserInfo.cs" />
+    <Compile Include="Model\Return\User\RetUserOrganiseInfo.cs" />
+    <Compile Include="Model\Return\User\RetVerificationCode.cs" />
+    <Compile Include="PhoneCodeBLL.cs" />
+    <Compile Include="SMS\QDBeaconFire.cs" />
+    <Compile Include="SMS\ShortMessageBLL.cs" />
+    <Compile Include="UserInfoBLL.cs" />
+    <Compile Include="UserLoginBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\GenerSoft.IndApp.Common.csproj">
+      <Project>{7daeb732-cdda-4be3-acb1-f8a3b69a6738}</Project>
+      <Name>GenerSoft.IndApp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.IndApp.Redis\GenerSoft.IndApp.Redis.csproj">
+      <Project>{e96211a9-cfdf-4b00-a8c6-8dfb7f04e43b}</Project>
+      <Name>GenerSoft.IndApp.Redis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserDAL\GenerSoft.IndApp.UserDAL.csproj">
+      <Project>{334c13af-2c33-466e-8a59-9cff1782da8a}</Project>
+      <Name>GenerSoft.IndApp.UserDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

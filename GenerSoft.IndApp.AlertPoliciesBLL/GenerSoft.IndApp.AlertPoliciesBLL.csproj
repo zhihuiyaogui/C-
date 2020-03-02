@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D27E142A-86C9-45B7-80DD-43F6D6CF24C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenerSoft.IndApp.AlertPoliciesBLL</RootNamespace>
+    <AssemblyName>GenerSoft.IndApp.AlertPoliciesBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MQTTnet, Version=2.8.1.0, Culture=neutral, PublicKeyToken=b69712f52770c0a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\MQTTnet.2.8.1\lib\net452\MQTTnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlarmReportInfoBLL.cs" />
+    <Compile Include="AlertPoliciesInfoBLL.cs" />
+    <Compile Include="AlertServiceBLL.cs" />
+    <Compile Include="ControllDeviceBLL.cs" />
+    <Compile Include="GetSensorDataByApiBLL.cs" />
+    <Compile Include="HistoryAlertPoliciesBLL.cs" />
+    <Compile Include="Model\Parameter\AlarmReport\AlarmReportItemModel.cs" />
+    <Compile Include="Model\Parameter\AlarmReport\AlarmReportModel.cs" />
+    <Compile Include="Model\Parameter\AlertPolicies\AlertPoliciesListModel.cs" />
+    <Compile Include="Model\Parameter\AlertPolicies\AlertPoliciesModel.cs" />
+    <Compile Include="Model\Parameter\AlertPolicies\AlertPropertyModel.cs" />
+    <Compile Include="Model\Parameter\AlertPolicies\EnableDeviceParmeter.cs" />
+    <Compile Include="Model\Parameter\AlertPolicies\TagMapModel.cs" />
+    <Compile Include="Model\Parameter\HistoryAlertPolicies\HistoryAlertPoliciesModel.cs" />
+    <Compile Include="Model\Return\AlarmReport\RetAlarmReport.cs" />
+    <Compile Include="Model\Return\AlarmReport\RetAlarmReportDetail.cs" />
+    <Compile Include="Model\Return\AlarmReport\RetAlarmReportItem.cs" />
+    <Compile Include="Model\Return\AlarmReport\RetChartInfo.cs" />
+    <Compile Include="Model\Return\AlertPolicies\RetAlertPolicies.cs" />
+    <Compile Include="Model\Return\AlertPolicies\RetTagMap.cs" />
+    <Compile Include="Model\Return\HistoryAlertPolicies\RetHistoryAlertPolicies.cs" />
+    <Compile Include="Model\YanHuaPayload.cs" />
+    <Compile Include="MqttServiceContainer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\GenerSoft.IndApp.Common.csproj">
+      <Project>{7daeb732-cdda-4be3-acb1-f8a3b69a6738}</Project>
+      <Name>GenerSoft.IndApp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeviceMonitoringBLL\GenerSoft.IndApp.DeviceMonitoringBLL.csproj">
+      <Project>{ACDC85E7-3DBE-45BE-B035-93FBD7A80FE9}</Project>
+      <Name>GenerSoft.IndApp.DeviceMonitoringBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeviceMonitoringDAL\GenerSoft.IndApp.DeviceMonitoringDAL.csproj">
+      <Project>{B8FB93CC-C118-4D8B-82E2-6C5B4948A92B}</Project>
+      <Name>GenerSoft.IndApp.DeviceMonitoringDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.IndApp.AlertPoliciesDAL\GenerSoft.IndApp.AlertPoliciesDAL.csproj">
+      <Project>{9d961905-4a1e-4ec0-949e-fc9196c9f37f}</Project>
+      <Name>GenerSoft.IndApp.AlertPoliciesDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.IndApp.CommonSdk\GenerSoft.IndApp.CommonSdk.csproj">
+      <Project>{9e5fd4c4-663a-4bf6-b47f-f03df0dbe3c3}</Project>
+      <Name>GenerSoft.IndApp.CommonSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.MQTT.Client\GenerSoft.MQTT.Client.csproj">
+      <Project>{18E04A17-A18D-4396-ADF7-E31A2578B4CE}</Project>
+      <Name>GenerSoft.MQTT.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.OpenTSDB.Client\GenerSoft.OpenTSDB.Client.csproj">
+      <Project>{aa6c3d4b-f212-452f-8e19-1cc4f23b1bfd}</Project>
+      <Name>GenerSoft.OpenTSDB.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

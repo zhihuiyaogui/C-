@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UserModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="U_Enumerations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="int" />
+          <Property Name="ParentID" Type="bigint" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="OrgID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="U_HomeConfiguration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DashBoardType" Type="int" />
+          <Property Name="DeviceID" Type="bigint" />
+          <Property Name="DeviceItemID" Type="bigint" />
+          <Property Name="ChartName" Type="varchar" MaxLength="5000" />
+          <Property Name="ChartType" Type="int" />
+          <Property Name="ChartConfig" Type="varchar" MaxLength="5000" />
+          <Property Name="DashBoardData" Type="varchar" MaxLength="5000" />
+          <Property Name="Remark" Type="varchar" MaxLength="5000" />
+          <Property Name="SortID" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+          <Property Name="CreateUserID" Type="bigint" />
+          <Property Name="OrgID" Type="bigint" />
+          <Property Name="GroupID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="U_Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Tittle" Type="varchar" MaxLength="500" />
+          <Property Name="Text" Type="text" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+          <Property Name="CreateUserID" Type="bigint" />
+          <Property Name="UpdateTime" Type="datetime" Precision="0" />
+          <Property Name="UpdateUserID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="U_Organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="24" />
+          <Property Name="Name" Type="varchar" MaxLength="128" />
+          <Property Name="Province" Type="varchar" MaxLength="64" />
+          <Property Name="City" Type="varchar" MaxLength="64" />
+          <Property Name="Area" Type="varchar" MaxLength="64" />
+          <Property Name="Town" Type="varchar" MaxLength="64" />
+          <Property Name="Street" Type="varchar" MaxLength="64" />
+          <Property Name="AddressDetail" Type="varchar" MaxLength="500" />
+          <Property Name="LogoUrl" Type="varchar" MaxLength="2000" />
+          <Property Name="ContactName" Type="varchar" MaxLength="64" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="24" />
+          <Property Name="FixedPhone" Type="varchar" MaxLength="24" />
+          <Property Name="Fax" Type="varchar" MaxLength="24" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="16" />
+          <Property Name="Email" Type="varchar" MaxLength="128" />
+          <Property Name="State" Type="char" MaxLength="1" />
+          <Property Name="TradeLevel1" Type="varchar" MaxLength="64" />
+          <Property Name="TradeLevel2" Type="varchar" MaxLength="64" />
+          <Property Name="LocationAddress" Type="varchar" MaxLength="500" />
+          <Property Name="RegistrationTime" Type="datetime" Precision="0" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+          <Property Name="CreateUserId" Type="bigint" />
+          <Property Name="UpdateTime" Type="datetime" Precision="0" />
+          <Property Name="UpdateUserId" Type="bigint" />
+          <Property Name="Site" Type="varchar" MaxLength="128" />
+          <Property Name="Description" Type="varchar" MaxLength="4000" />
+          <Property Name="ValidFrom" Type="datetime" Precision="0" />
+          <Property Name="ValidTo" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="U_PhoneCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="StartTime" Type="datetime" Precision="0" />
+          <Property Name="EndTime" Type="datetime" Precision="0" />
+          <Property Name="ClientIp" Type="varchar" MaxLength="50" />
+          <Property Name="SmsType" Type="varchar" MaxLength="50" />
+          <Property Name="SmsContent" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="U_StaticParam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaticName" Type="varchar" MaxLength="200" />
+          <Property Name="StaticKey" Type="varchar" MaxLength="200" />
+          <Property Name="StaticValue" Type="varchar" MaxLength="2000" />
+          <Property Name="ParentID" Type="bigint" />
+          <Property Name="StartDateTime" Type="datetime" Precision="0" />
+          <Property Name="EndDateTime" Type="datetime" Precision="0" />
+          <Property Name="SortID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="U_Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TokenID" Type="varchar" MaxLength="64" />
+          <Property Name="IsDisabled" Type="bool" />
+          <Property Name="DisabledTime" Type="datetime" Precision="0" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="UserFrom" Type="int" />
+          <Property Name="Uniqueness" Type="bool" />
+          <Property Name="Expiration" Type="datetime" Precision="0" />
+          <Property Name="AesKey" Type="varchar" MaxLength="36" />
+          <Property Name="AesIv" Type="varchar" MaxLength="36" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="U_User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="varchar" MaxLength="36" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="PassWord" Type="varchar" MaxLength="200" />
+          <Property Name="Type" Type="char" MaxLength="1" />
+          <Property Name="Email" Type="varchar" MaxLength="64" />
+          <Property Name="ContactPhone" Type="varchar" MaxLength="24" />
+          <Property Name="IsAdmin" Type="int" />
+          <Property Name="IsManageAdmin" Type="int" />
+          <Property Name="HeadImgUrl" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="LockState" Type="char" MaxLength="1" />
+          <Property Name="LastLoginDate" Type="datetime" Precision="0" />
+          <Property Name="UpdateTime" Type="datetime" Precision="0" />
+          <Property Name="ValidFrom" Type="datetime" Precision="0" />
+          <Property Name="ValidTo" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="U_UserLoginErrorInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="U_UserMessageRel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="MessageID" Type="bigint" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+          <Property Name="CreateUserID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="U_UserOrganizationRel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="OrgID" Type="bigint" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+          <Property Name="IsManager" Type="char" MaxLength="1" />
+          <Property Name="CreateUserId" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="UserModelStoreContainer">
+          <EntitySet Name="U_Enumerations" EntityType="Self.U_Enumerations" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_HomeConfiguration" EntityType="Self.U_HomeConfiguration" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_Message" EntityType="Self.U_Message" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_Organization" EntityType="Self.U_Organization" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_PhoneCode" EntityType="Self.U_PhoneCode" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_StaticParam" EntityType="Self.U_StaticParam" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_Token" EntityType="Self.U_Token" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_User" EntityType="Self.U_User" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_UserLoginErrorInfo" EntityType="Self.U_UserLoginErrorInfo" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_UserMessageRel" EntityType="Self.U_UserMessageRel" Schema="devicemonitor" store:Type="Tables" />
+          <EntitySet Name="U_UserOrganizationRel" EntityType="Self.U_UserOrganizationRel" Schema="devicemonitor" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UserModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UserEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="U_Enumerations" EntityType="UserModel.U_Enumerations" />
+          <EntitySet Name="U_HomeConfiguration" EntityType="UserModel.U_HomeConfiguration" />
+          <EntitySet Name="U_Message" EntityType="UserModel.U_Message" />
+          <EntitySet Name="U_Organization" EntityType="UserModel.U_Organization" />
+          <EntitySet Name="U_PhoneCode" EntityType="UserModel.U_PhoneCode" />
+          <EntitySet Name="U_StaticParam" EntityType="UserModel.U_StaticParam" />
+          <EntitySet Name="U_Token" EntityType="UserModel.U_Token" />
+          <EntitySet Name="U_User" EntityType="UserModel.U_User" />
+          <EntitySet Name="U_UserLoginErrorInfo" EntityType="UserModel.U_UserLoginErrorInfo" />
+          <EntitySet Name="U_UserMessageRel" EntityType="UserModel.U_UserMessageRel" />
+          <EntitySet Name="U_UserOrganizationRel" EntityType="UserModel.U_UserOrganizationRel" />
+        </EntityContainer>
+        <EntityType Name="U_Enumerations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Int32" />
+          <Property Name="ParentID" Type="Int64" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="OrgID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="U_HomeConfiguration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DashBoardType" Type="Int32" />
+          <Property Name="DeviceID" Type="Int64" />
+          <Property Name="DeviceItemID" Type="Int64" />
+          <Property Name="ChartName" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="ChartType" Type="Int32" />
+          <Property Name="ChartConfig" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="DashBoardData" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SortID" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="CreateUserID" Type="Int64" />
+          <Property Name="OrgID" Type="Int64" />
+          <Property Name="GroupID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="U_Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tittle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Text" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="CreateUserID" Type="Int64" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="UpdateUserID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="U_Organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Town" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="AddressDetail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LogoUrl" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ContactName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="FixedPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TradeLevel1" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="TradeLevel2" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="LocationAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RegistrationTime" Type="DateTime" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="CreateUserId" Type="Int64" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="UpdateUserId" Type="Int64" />
+          <Property Name="Site" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ValidFrom" Type="DateTime" />
+          <Property Name="ValidTo" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="U_PhoneCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="DateTime" />
+          <Property Name="EndTime" Type="DateTime" />
+          <Property Name="ClientIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SmsType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SmsContent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="U_StaticParam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaticName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StaticKey" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StaticValue" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int64" />
+          <Property Name="StartDateTime" Type="DateTime" />
+          <Property Name="EndDateTime" Type="DateTime" />
+          <Property Name="SortID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="U_Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TokenID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="IsDisabled" Type="Boolean" />
+          <Property Name="DisabledTime" Type="DateTime" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="UserFrom" Type="Int32" />
+          <Property Name="Uniqueness" Type="Boolean" />
+          <Property Name="Expiration" Type="DateTime" />
+          <Property Name="AesKey" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AesIv" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="U_User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassWord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdmin" Type="Int32" />
+          <Property Name="IsManageAdmin" Type="Int32" />
+          <Property Name="HeadImgUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LockState" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LastLoginDate" Type="DateTime" />
+          <Property Name="UpdateTime" Type="DateTime" />
+          <Property Name="ValidFrom" Type="DateTime" />
+          <Property Name="ValidTo" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="U_UserLoginErrorInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="CreateTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="U_UserMessageRel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="MessageID" Type="Int64" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="CreateUserID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="U_UserOrganizationRel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="OrgID" Type="Int64" />
+          <Property Name="CreateTime" Type="DateTime" />
+          <Property Name="IsManager" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserId" Type="Int64" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UserModelStoreContainer" CdmEntityContainer="UserEntities">
+          <EntitySetMapping Name="U_Enumerations">
+            <EntityTypeMapping TypeName="UserModel.U_Enumerations">
+              <MappingFragment StoreEntitySet="U_Enumerations">
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_HomeConfiguration">
+            <EntityTypeMapping TypeName="UserModel.U_HomeConfiguration">
+              <MappingFragment StoreEntitySet="U_HomeConfiguration">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="SortID" ColumnName="SortID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DashBoardData" ColumnName="DashBoardData" />
+                <ScalarProperty Name="ChartConfig" ColumnName="ChartConfig" />
+                <ScalarProperty Name="ChartType" ColumnName="ChartType" />
+                <ScalarProperty Name="ChartName" ColumnName="ChartName" />
+                <ScalarProperty Name="DeviceItemID" ColumnName="DeviceItemID" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="DashBoardType" ColumnName="DashBoardType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_Message">
+            <EntityTypeMapping TypeName="UserModel.U_Message">
+              <MappingFragment StoreEntitySet="U_Message">
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Tittle" ColumnName="Tittle" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_Organization">
+            <EntityTypeMapping TypeName="UserModel.U_Organization">
+              <MappingFragment StoreEntitySet="U_Organization">
+                <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="RegistrationTime" ColumnName="RegistrationTime" />
+                <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+                <ScalarProperty Name="TradeLevel2" ColumnName="TradeLevel2" />
+                <ScalarProperty Name="TradeLevel1" ColumnName="TradeLevel1" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="FixedPhone" ColumnName="FixedPhone" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+                <ScalarProperty Name="AddressDetail" ColumnName="AddressDetail" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_PhoneCode">
+            <EntityTypeMapping TypeName="UserModel.U_PhoneCode">
+              <MappingFragment StoreEntitySet="U_PhoneCode">
+                <ScalarProperty Name="SmsContent" ColumnName="SmsContent" />
+                <ScalarProperty Name="SmsType" ColumnName="SmsType" />
+                <ScalarProperty Name="ClientIp" ColumnName="ClientIp" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_StaticParam">
+            <EntityTypeMapping TypeName="UserModel.U_StaticParam">
+              <MappingFragment StoreEntitySet="U_StaticParam">
+                <ScalarProperty Name="SortID" ColumnName="SortID" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="StaticValue" ColumnName="StaticValue" />
+                <ScalarProperty Name="StaticKey" ColumnName="StaticKey" />
+                <ScalarProperty Name="StaticName" ColumnName="StaticName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_Token">
+            <EntityTypeMapping TypeName="UserModel.U_Token">
+              <MappingFragment StoreEntitySet="U_Token">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="AesIv" ColumnName="AesIv" />
+                <ScalarProperty Name="AesKey" ColumnName="AesKey" />
+                <ScalarProperty Name="Expiration" ColumnName="Expiration" />
+                <ScalarProperty Name="Uniqueness" ColumnName="Uniqueness" />
+                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DisabledTime" ColumnName="DisabledTime" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_User">
+            <EntityTypeMapping TypeName="UserModel.U_User">
+              <MappingFragment StoreEntitySet="U_User">
+                <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LockState" ColumnName="LockState" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="HeadImgUrl" ColumnName="HeadImgUrl" />
+                <ScalarProperty Name="IsManageAdmin" ColumnName="IsManageAdmin" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_UserLoginErrorInfo">
+            <EntityTypeMapping TypeName="UserModel.U_UserLoginErrorInfo">
+              <MappingFragment StoreEntitySet="U_UserLoginErrorInfo">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_UserMessageRel">
+            <EntityTypeMapping TypeName="UserModel.U_UserMessageRel">
+              <MappingFragment StoreEntitySet="U_UserMessageRel">
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="U_UserOrganizationRel">
+            <EntityTypeMapping TypeName="UserModel.U_UserOrganizationRel">
+              <MappingFragment StoreEntitySet="U_UserOrganizationRel">
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="IsManager" ColumnName="IsManager" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

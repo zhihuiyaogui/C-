@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="126dbe1e9fd34392bb83e07f07096aa1" Name="Diagram1" ZoomLevel="91" >
+        <EntityTypeShape EntityType="MonitoringModel.A_AlarmHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.A_AlarmStrategy" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_AlarmDoorPolicies" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_AlarmStrategy" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_AlertPolicies" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_DataConnectConfiguration" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_DeviceBuilding" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_DeviceEnvironmentt" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_DeviceGroup" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_DeviceModel" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_DeviceModelItem" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_Devices" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_DevicesItem" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_IoTHubConfiguration" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_MedicineInfo" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_MedicineListInfo" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MonitoringModel.D_MedicineListInfoModel" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MonitoringModel.M_Medicine" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_Enumerations" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_HomeConfiguration" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_Message" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_Organization" Width="1.5" PointX="10.75" PointY="13.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_PhoneCode" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_StaticParam" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_Token" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_User" Width="1.5" PointX="4.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_UserLoginErrorInfo" Width="1.5" PointX="6.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_UserMessageRel" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MonitoringModel.U_UserOrganizationRel" Width="1.5" PointX="14.75" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

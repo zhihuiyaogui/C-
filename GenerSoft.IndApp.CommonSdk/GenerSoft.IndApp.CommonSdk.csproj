@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E5FD4C4-663A-4BF6-B47F-F03DF0DBE3C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenerSoft.IndApp.CommonSdk</RootNamespace>
+    <AssemblyName>GenerSoft.IndApp.CommonSdk</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlertPoliciesApi.cs" />
+    <Compile Include="DeviceMonitoringApi.cs" />
+    <Compile Include="Model\Alert\EnableDeviceParmeter.cs" />
+    <Compile Include="Model\Device\DeviceData\GetDeviceDataParameter.cs" />
+    <Compile Include="Model\Device\DeviceData\RetDeviceCurrentData.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\DataConnectConfigurationModel.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\GetDeviceInfoParameter.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\IoTHubConfigurationModel.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\RetDataConnectConfiguration.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\RetDeviceInfo.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\RetDeviceItemInfo.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\RetDeviceTag.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\RetIoTHubConfiguration.cs" />
+    <Compile Include="Model\Device\DeviceMonitoring\RetIoTHubConnection.cs" />
+    <Compile Include="Model\User\GetMessageInfoParameter.cs" />
+    <Compile Include="Model\User\GetUserInfoParameter.cs" />
+    <Compile Include="Model\User\RetUserLoginInfo.cs" />
+    <Compile Include="Model\User\GetTokenEntityParameter.cs" />
+    <Compile Include="Model\User\TokenEntity.cs" />
+    <Compile Include="UserApi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\GenerSoft.IndApp.Common.csproj">
+      <Project>{7daeb732-cdda-4be3-acb1-f8a3b69a6738}</Project>
+      <Name>GenerSoft.IndApp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenerSoft.IndApp.Redis\GenerSoft.IndApp.Redis.csproj">
+      <Project>{e96211a9-cfdf-4b00-a8c6-8dfb7f04e43b}</Project>
+      <Name>GenerSoft.IndApp.Redis</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
